@@ -1,0 +1,37 @@
+
+<!-- //using mongoose -->
+    <%- include('../includes/head.ejs') %>
+  </head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+    <div class="container">
+      <% if(orders.length<=0){ %>
+        <h2>No Current Orders</h2>
+      <% }else{ %>
+        <h2 style="text-align: center;">Your Orders</h2>
+        <ul class="list-group" style="width: 100%;  ">
+          <% var i=1; %>
+          <% orders.forEach(o=>{ %>
+            
+              <li class="list-group-item " style="margin-bottom: 10px; border-top: 1px solid gray; ">
+
+                <h4>Order - # <%= o._id %> - <a href="/orders/<%= o._id %>">Invoice</a></h4>
+                <ul class="list-group" style="width: 100%; ">
+                  <% o.products.forEach(p =>{ %>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                   <h4> <%= p.product.title %> <span style="background-color: blue;" class="badge badge-primary badge-pill"><%= p.quantity %> </a></span>
+                   </h4>
+                    </li>
+                 <% }); %>
+                </ul>
+                
+            </li>
+          <% i++;
+        });  %>
+        </ul>
+       
+        <% } %>
+
+    </div>
+
+    <%- include('../includes/end.ejs') %>

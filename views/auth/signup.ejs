@@ -1,0 +1,36 @@
+<%- include('../includes/head.ejs') %>
+
+  </head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+
+    <div class="container">
+      <% if(errorMessage) {%>
+        <div class="text-center fs-5  fw-bold p-3 m-2 text-white rounded bg-danger">
+         <%= errorMessage %>
+        </div>
+        <% } %>
+  
+      <form  action="/signup" method="POST">
+        <div class="form-control" style="margin-top: 10px;">
+          <label for="name">Name :</label>
+          <input class="form-control" placeholder="Enter Your Name" type="text" value="<%= oldData.name %>" name="name">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+          
+          <label for="email">E-Mail :</label>
+          <input class="form-control <%= validationErrors.find(e => e.param==='email') ? 'border border-danger' : '' %>"  placeholder="Enter The Email" type="email" value="<%= oldData.email %>" name="email">
+      
+          <label for="password">Password:</label>
+          <input class="form-control <%= validationErrors.find(e => e.param==='password') ? 'border border-danger' : '' %>" placeholder="Enter The Password" type="password" value="<%= oldData.password %>"  name="password">
+
+          <label for="confirmpassword">Confirm Password:</label>
+          <input class="form-control <%= validationErrors.find(e => e.param==='confirmpassword') ? 'border border-danger' : '' %>" placeholder="Enter The Password Again" type="password" value="<%= oldData.confirmpassword %>"  name="confirmpassword">
+
+        </div>
+        <button class="btn btn-primary" style="margin-top:10px;" type="submit">Signup</button>
+      </form>
+
+    </div>
+
+    <%- include('../includes/end.ejs') %>

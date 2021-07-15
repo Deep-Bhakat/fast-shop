@@ -1,0 +1,57 @@
+<%- include('../includes/head.ejs') %>
+<link type="stylesheet" href="/css/product.css">
+  </head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+
+    <div class="container">
+<!-- https://itsevalicious.com/wp-content/uploads/2016/07/NatureWallpaperHDFreeDownload-1-1024x768.jpg -->
+      <h2 style="text-align: center;">My Products</h2>
+        <% if(prods.length>0) { %>
+          <div class="row">
+
+            <% for(let product of prods) { %>
+                <div class="col-sm-3">
+                  <div class="card text-center">
+                    <div class="card-header">
+                   <h5 class="card-title"><%= product.title %></h5>
+
+                    </div>
+                    <img src="/<%= product.imageUrl %>" class="card-img-top" alt="<%= product.title %>">
+
+                    <div class="card-body">
+                   
+                      <h5>Rs <%= product.price %> </h5>
+                      <p> <%= product.description %></p>
+
+                          
+                       <form action="/cart" method="POST">                  
+                             <span style="display: inline;" >
+                              <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+                              <a href="/products/<%= product._id %>"> <button type="button" class="btn btn-primary btn-sm" >Details</button></a>
+                        <%  if(isLoggedIn){ %>
+
+                        <button class="btn btn-primary btn-sm" >Add To Cart</button>
+                        <%  } %>
+
+                        <input type="hidden" name="productId" value="<%= product._id %>">
+
+                      </span>
+                      </form> 
+                      
+                                        </div>
+                  </div>
+                </div>
+             
+
+   <%  } %>
+  </div>
+  <%- include('../includes/pagination.ejs', {currentPage:currentPage,lastPage:lastPage,nextPage:nextPage,previousPage:previousPage,hasPreviousPage:hasPreviousPage,hasNextPage:hasNextPage}) %>
+
+   <%  }else{ %>
+    <h1>No Products</h1>
+    <%  } %>
+
+    </div>
+    <%- include('../includes/end.ejs') %>

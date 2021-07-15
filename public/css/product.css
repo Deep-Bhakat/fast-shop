@@ -1,0 +1,9 @@
+.form-control input{
+    display: block;
+}
+.btn{
+  margin-top: 10px;
+}
+.btn:hover{
+  background-color:blueviolet;
+}

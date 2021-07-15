@@ -1,0 +1,39 @@
+<%- include('../includes/head.ejs') %>
+
+  </head>
+<body>
+    <%- include('../includes/navbar.ejs') %>
+
+    <div class="container">
+      <% if(errorMessage) {%>
+        <div class="text-center fs-5  fw-bold p-3 m-2 text-white rounded bg-danger">
+         <%= errorMessage %>
+        </div>
+        <% } %>
+      <form class="product-form" enctype="multipart/form-data"  action="/admin/add-product" method="POST">
+        <div class="form-control" style="margin-top: 10px;">
+          <label for="title">Title :</label>
+          <input class="form-control <%= validationErrors.find(e => e.param==='title') ? 'border border-danger' : '' %>" placeholder="Enter The Title" type="text" value="<%= oldData.title %>" name="title">
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+
+      
+          <!-- <label for="imageUrl">Image Url :</label>
+          <input  class="form-control <%= validationErrors.find(e => e.param==='imageUrl') ? 'border border-danger' : '' %>" placeholder="Enter The Image Url" type="text" value="<%= oldData.imageUrl %>" name="imageUrl"> -->
+         
+          <label for="image">Image:</label>
+          <input class="form-control" type="file" id="image" name="image">
+
+          <label for="price">Price :</label>
+          <input class="form-control <%= validationErrors.find(e => e.param==='price') ? 'border border-danger' : '' %>" placeholder="Enter The Price" type="number" value="<%= oldData.price %>" name="price">
+
+       
+          <label for="description">Description :</label>
+          <textarea class="form-control <%= validationErrors.find(e => e.param==='description') ? 'border border-danger' : '' %>" placeholder="Enter The Description" name="description" rows="5"><%= oldData.description %></textarea>
+
+        </div>
+        <button class="btn btn-primary" type="submit">Add</button>
+      </form>
+
+    </div>
+
+    <%- include('../includes/end.ejs') %>

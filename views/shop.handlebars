@@ -1,0 +1,18 @@
+
+    <div class="container">
+      <h1>My Products</h1>
+      <p>List of all the products</p>
+
+      {{#if hasProducts }}
+            {{#each prods}}
+            <div class="card" style="width: 18rem;">
+                 <img src="https://itsevalicious.com/wp-content/uploads/2016/07/NatureWallpaperHDFreeDownload-1-1024x768.jpg" class="card-img-top" alt="...">
+                  <div class="card-body">
+                 <h5 class="card-title">{{ this.title }}</h5>
+             </div>
+            </div>
+            {{/each}}
+        {{else}}
+            <h1>No Products</h1>
+        {{/if}}
+    </div>
