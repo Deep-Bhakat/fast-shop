@@ -52,9 +52,9 @@ router.post('/add-product',[
     ],
 isAuth,adminController.postAddProduct);
 router.get('/products',isAuth,adminController.getProducts);
-// router.post('/delete-product',isAuth,adminController.postDeleteProduct);
+router.post('/delete-product',isAuth,adminController.postDeleteProduct);
 //for async requests 
-router.delete('/product/:productId',isAuth,adminController.deleteProduct);
+// router.delete('/product/:productId',isAuth,adminController.deleteProduct);
 
 // exports.routes=router;
 // exports.product=product; 

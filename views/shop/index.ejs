@@ -6,18 +6,18 @@
 
     <div class="container">
 <!-- https://itsevalicious.com/wp-content/uploads/2016/07/NatureWallpaperHDFreeDownload-1-1024x768.jpg -->
-      <h2 style="text-align: center;">My Products</h2>
+      <h2 style="text-align: center;">All Products</h2>
         <% if(prods.length>0) { %>
           <div class="row">
 
             <% for(let product of prods) { %>
-                <div class="col-sm-3">
+                <div class="col-sm-3" style="margin-bottom: 10px;">
                   <div class="card text-center">
                     <div class="card-header">
                    <h5 class="card-title"><%= product.title %></h5>
 
                     </div>
-                    <img src="/<%= product.imageUrl %>" class="card-img-top" alt="<%= product.title %>">
+                    <img src="/<%= product.imageUrl %>" style="width: max-width; height: 200px" class="card-img-top" alt="<%= product.title %>">
 
                     <div class="card-body">
                    

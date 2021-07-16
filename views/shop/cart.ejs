@@ -1,36 +1,4 @@
-<!-- <%- include('../includes/head.ejs') %>
-  </head>
-<body>
-    <%- include('../includes/navbar.ejs') %>
-    <div class="container"  style="text-align:center;margin: auto; margin-top: 10px;">
-      <% if(products.length>0){ %>
-        <ul class="list-group" style="width: 35rem; text-align: center; margin: auto;">
-          <% products.forEach(p=>{ %>
-            
-              <li class="list-group-item d-flex justify-content-between align-items-center">
 
-                <h4><%= p.title %> 
-                <span style="background-color: blue;" class="badge badge-primary badge-pill"><%= p.quantity %> </span>
-                  </h4>
-                <form action="/cart-delete-item" method="POST">
-
-                <input type="hidden" name="proId" value="<%= p._id %>">
-
-               <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-              </form>
-            </li>
-          <% });  %>
-        </ul>
-        
-        <form  method="POST" action="/create-order">
-          <button type="submit" class="btn btn-primary">Order Now</button>
-        </form>
-        <% } else {%>
-          <h2>No Items In Cart</h2>
-          <% } %>
-    </div>
-  
-    <%- include('../includes/end.ejs') %> -->
 <!-- using mongoose -->
     <%- include('../includes/head.ejs') %>
   </head>

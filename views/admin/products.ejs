@@ -11,7 +11,7 @@
           <div class="row">
 
             <% for(let product of prods) { %>
-                <div class="col-sm-3">
+                <div class="col-sm-3" style="margin-bottom: 10px;">
                   <div class="card text-center">
                     <div class="card-header ">
                    <h5 class="card-title"><%= product.title %></h5>
@@ -22,13 +22,13 @@
                     <div class="card-body">
                       <h5>Rs <%= product.price %> </h5>
                       <p> <%= product.description %></p>
-                     <!-- <form action="/admin/delete-product" method="POST"> -->
+                     <form action="/admin/delete-product" method="POST">
                       <a href="/admin/edit-product/<%= product._id %>?edit=true"><button class="btn btn-primary" type="button" >Edit</button></a>
                       <input type="hidden" name="_csrf" value="<%= csrfToken %>">
 
                       <input type="hidden" name="proId" value="<%= product._id %>">
-                      <button class="btn btn-danger" type="button" onclick="deleteProduct(this)" >Delete </button>
-                    <!-- </form> -->
+                      <button class="btn btn-danger" type="submit"  >Delete </button>
+                    </form>
 
                     </div>
                   </div>

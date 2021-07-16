@@ -512,53 +512,53 @@ const page=+req.query.page || 1;
     });
     };
 
-    // exports.postDeleteProduct=(req,res,next)=>{
-    //             const proId=req.body.proId;
+    exports.postDeleteProduct=(req,res,next)=>{
+                const proId=req.body.proId;
              
-    //             Products.findById(proId)
-    //             .then(product =>{
-    //               if(!product){
-    //                 return next(new Error('No Product Found!'));
-    //               }
-    //               fileHelper.deleteFile(product.imageUrl);
-    //             return Products.deleteOne({_id:proId,userId:req.user._id})  
+                Products.findById(proId)
+                .then(product =>{
+                  if(!product){
+                    return next(new Error('No Product Found!'));
+                  }
+                  fileHelper.deleteFile(product.imageUrl);
+                return Products.deleteOne({_id:proId,userId:req.user._id})  
 
-    //             })
-    //              //  Products.findByIdAndRemove(proId)              
-    //            .then(() =>{
-    //               res.redirect('/admin/products'); 
-    //               })
-    //               .catch(err => {
-    //                console.log(err);
-    //                const error = new Error(err);
-    //                error.httpStatusCode=500;
-    //                return next(error);
-    //              });
+                })
+                 //  Products.findByIdAndRemove(proId)              
+               .then(() =>{
+                  res.redirect('/admin/products'); 
+                  })
+                  .catch(err => {
+                   console.log(err);
+                   const error = new Error(err);
+                   error.httpStatusCode=500;
+                   return next(error);
+                 });
                 
-    //                          };
+                             };
       
-    exports.deleteProduct=(req,res,next)=>{
-      const proId=req.params.productId;
+    // exports.deleteProduct=(req,res,next)=>{
+    //   const proId=req.params.productId;
    
-      Products.findById(proId)
-      .then(product =>{
-        if(!product){
-          return next(new Error('No Product Found!'));
-        }
-        fileHelper.deleteFile(product.imageUrl);
-      return Products.deleteOne({_id:proId,userId:req.user._id})  
+    //   Products.findById(proId)
+    //   .then(product =>{
+    //     if(!product){
+    //       return next(new Error('No Product Found!'));
+    //     }
+    //     fileHelper.deleteFile(product.imageUrl);
+    //   return Products.deleteOne({_id:proId,userId:req.user._id})  
 
-      })
-       //  Products.findByIdAndRemove(proId)              
-     .then(() =>{
-       //for async requests
-        res.status(200).json({
-          message: 'Success!'
-        });
-        //res.redirect('/admin/products'); 
-        })
-        .catch(err => {
-          res.status(500).json({message : "Delete Failed!"});
-       });
+    //   })
+    //    //  Products.findByIdAndRemove(proId)              
+    //  .then(() =>{
+    //    //for async requests
+    //     res.status(200).json({
+    //       message: 'Success!'
+    //     });
+    //     //res.redirect('/admin/products'); 
+    //     })
+    //     .catch(err => {
+    //       res.status(500).json({message : "Delete Failed!"});
+    //    });
       
-                   };
+    //                };

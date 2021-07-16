@@ -380,7 +380,7 @@ const path = require('path');
 const stripe=require('stripe')(process.env.STRIPE_KEY);
 
 //items per page
-const ITEMS_PER_PAGE=10;
+const ITEMS_PER_PAGE=8;
 //for generating pdf
 const PDFDocument = require('pdfkit')
 exports.getProducts = (req, res, next) => {
@@ -396,7 +396,7 @@ exports.getProducts = (req, res, next) => {
         .limit(ITEMS_PER_PAGE);
     })  
     .then(products => {
-      res.render('shop/index', {
+      res.render('shop/product-list', {
         prods: products,
         pageTitle: "Shop",
         path: '/',
