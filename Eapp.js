@@ -287,7 +287,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PA
     //     }
     // });
     console.log("Connected");
-    app.listen(process.env.PORT || 3001);
+    app.listen(process.env.PORT || 3000);
     // https.createServer({key: privateKey, cert:certificate},app)
     // .listen(process.env.PORT || 3000);
   }).catch(err => console.log(err)); 

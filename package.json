@@ -8,7 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node Eapp.js",
+    "start": "MONGO_USER=admin MONGO_PASSWORD=lRbedv2BquWiNYif MONGO_DATABASE=shopMongoose STRIPE_KEY=sk_test_51JAyAnSBe2ieYIb74MehclbNQuXZJ9g2vzRaGppzgR4RMNan0qX2VBJQFCf0yYpIJnpP6k3dOELzPqNdJIizp8F700H5M89NFn node Eapp.js",
     "start:dev": "nodemon Eapp.js"
   },
   "author": "",
