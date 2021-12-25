@@ -39,6 +39,7 @@ const path=require('path');
 //const mongoConnect=require('./util/database').mongoConnect;
 
 //for mongoose
+require('dotenv').config();
 const mongoose=require("mongoose");
 //for compressing assets
 const compression=require('compression');
@@ -270,6 +271,7 @@ app.use('/500',(req,res,next)=>{
 
 //const port = process.env.PORT || 3000;
 //for mongoose
+
 mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASSWORD}@cluster0.hnbr0.mongodb.net/${process.env.MONGO_DATABASE}?retryWrites=true&w=majority`)
 .then(result =>{
     // User.findOne().then(user =>{
@@ -285,7 +287,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PA
     //     }
     // });
     console.log("Connected");
-    app.listen(process.env.PORT || 3000);
+    app.listen(process.env.PORT || 3001);
     // https.createServer({key: privateKey, cert:certificate},app)
     // .listen(process.env.PORT || 3000);
   }).catch(err => console.log(err)); 
