@@ -22,29 +22,29 @@
 
 //using mongodb
 
-const mongodb= require("mongodb");
-const MongoClient=mongodb.MongoClient;
-let _db;
+// const mongodb= require("mongodb");
+// const MongoClient=mongodb.MongoClient;
+// let _db;
 
-const mongoConnect = (cb) =>{
+// const mongoConnect = (cb) =>{
 
-    MongoClient.connect("mongodb+srv://user:HC7W3DzaRel4ylxq@cluster0.hnbr0.mongodb.net/shop?retryWrites=true&w=majority")
-    .then(client =>{
-        _db=client.db();
-        console.log("Connected");
-        cb(client);
-    })
-    .catch(err =>{
-        console.log(err);
-        throw err;
-    });
-};
+//     MongoClient.connect("mongodb+srv://user:OSuxCfgpG2b5U47d@cluster0.hnbr0.mongodb.net/shop?retryWrites=true&w=majority")
+//     .then(client =>{
+//         _db=client.db();
+//         console.log("Connected");
+//         cb(client);
+//     })
+//     .catch(err =>{
+//         console.log(err);
+//         throw err;
+//     });
+// };
 
-const getDb =()=>{
-    if(_db){
-        return _db;
-    }
-    throw "No database Found";
-};
-exports.getDb=getDb;
-exports.mongoConnect=mongoConnect;
+// const getDb =()=>{
+//     if(_db){
+//         return _db;
+//     }
+//     throw "No database Found";
+// };
+// exports.getDb=getDb;
+// exports.mongoConnect=mongoConnect;

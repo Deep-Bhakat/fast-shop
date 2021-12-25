@@ -377,7 +377,7 @@ const fs = require('fs');
 const path = require('path');
 //for payment
 // const stripe=require('stripe')('sk_test_51JAyAnSBe2ieYIb74MehclbNQuXZJ9g2vzRaGppzgR4RMNan0qX2VBJQFCf0yYpIJnpP6k3dOELzPqNdJIizp8F700H5M89NFn');
-const stripe=require('stripe')(process.env.STRIPE_KEY);
+const stripe=require('stripe')('sk_test_51JAyAnSBe2ieYIb74MehclbNQuXZJ9g2vzRaGppzgR4RMNan0qX2VBJQFCf0yYpIJnpP6k3dOELzPqNdJIizp8F700H5M89NFn');
 
 //items per page
 const ITEMS_PER_PAGE=8;
