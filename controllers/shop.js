@@ -498,7 +498,7 @@ exports.postCart = (req, res, next) => {
 exports.getCart = (req, res, next) => {
 
   req.user.populate('cart.items.productId')
-    .execPopulate()
+    //.execPopulate()
     .then(user => {
       res.render('shop/cart', {
         products: user.cart.items,
@@ -536,7 +536,7 @@ exports.getCheckout=(req,res,next) =>{
   let products;
   let total=0;
    req.user.populate('cart.items.productId')
-    .execPopulate()
+   // .execPopulate()
     .then(user => {
        products=user.cart.items;
        total=0;
@@ -579,7 +579,7 @@ exports.getCheckout=(req,res,next) =>{
   exports.getCheckoutSuccess = (req, res, next) => {
 
     req.user.populate('cart.items.productId')
-      .execPopulate()
+      // .execPopulate()
       .then(user => {
         const products = user.cart.items.map(i => {
           return { quantity: i.quantity, product: { ...i.productId._doc } };
@@ -615,7 +615,7 @@ exports.getCheckout=(req,res,next) =>{
 exports.postOrder = (req, res, next) => {
 
   req.user.populate('cart.items.productId')
-    .execPopulate()
+    // .execPopulate()
     .then(user => {
       const products = user.cart.items.map(i => {
         return { quantity: i.quantity, product: { ...i.productId._doc } };
@@ -690,12 +690,12 @@ exports.getInvoice = (req, res, next) => {
 
       // pdfDoc.text('Hello World');
       //for logo
-      const logoPath = path.join('logo', 'logo.jpg');
-      pdfDoc.image(logoPath, {
-        fit: [50, 50],
-        align: 'left',
-        valign: 'top'
-      });
+      // const logoPath = path.join('logo', 'logo.jpg');
+      // pdfDoc.image(logoPath, {
+      //   fit: [50, 50],
+      //   align: 'left',
+      //   valign: 'top'
+      // });
       pdfDoc.fontSize(26).text('Invoice', {
         underline: true,
         align: 'center'
@@ -709,12 +709,12 @@ exports.getInvoice = (req, res, next) => {
           + ' - ' + 
           prod.quantity 
           + ' x ' 
-          + 'Rs' +
+          + 'Rs ' +
            prod.product.price);
       });
       pdfDoc.text('---------------------------');
 
-      pdfDoc.fontSize(20).text('Total Price: Rs'+totalPrice);
+      pdfDoc.fontSize(20).text('Total Price: Rs '+totalPrice);
       pdfDoc.end();
 
       //readFile will read the whole file first

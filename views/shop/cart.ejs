@@ -30,10 +30,13 @@
 
           <button type="submit" class="btn btn-primary">Order Now</button>
         </form> -->
-        <button type="button" onclick="window.location.href='/checkout';" class="btn btn-primary">Order Now</button>
+        <button type="button" id="order"
+          class="btn btn-primary">Order Now</button>
         <% } else {%>
           <h2>No Items In Cart</h2>
           <% } %>
     </div>
-  
+    <script src="../js/orderScript.js">
+     
+    </script>
     <%- include('../includes/end.ejs') %>

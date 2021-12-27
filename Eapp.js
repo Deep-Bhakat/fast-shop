@@ -100,7 +100,12 @@ const csrfProtection=csrf();
 // const privateKey=fs.readFileSync('server.key');
 // const certificate=fs.readFileSync('server.cert');
 //for securing in production
-app.use(helmet());
+// app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 //for compressing assets
 app.use(compression());
 //for logging
